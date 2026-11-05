@@ -13,14 +13,14 @@ const NavBar = () => {
       <div className="hiddenLinks">
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
-        <Link to="/Events">Campuses</Link>
+        <Link to="/Events">Events</Link>
         <Link to="/contact">Contact</Link>
       </div>
 
       <div className="rightSide">
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
-        <Link to="/Events">Campuses</Link>
+        <Link to="/Events">Events</Link>
         <Link to="/contact">Contact</Link>
       </div>
     </div>
