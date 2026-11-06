@@ -1,0 +1,275 @@
+
+.home-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f6f7fb;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #1f2937;
+  overflow-x: hidden;
+}
+
+
+.hero-section {
+  text-align: center;
+  padding: 50px 20px 30px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.hero-section h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.hero-section p {
+  font-size: 1rem;
+  color: #4b5563;
+  margin-bottom: 24px;
+}
+
+
+.search-box-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  max-width: 550px;
+  margin: 0 auto 16px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-input:focus {
+  border-color: #3b36cf;
+}
+
+.search-btn {
+  background-color: #3b36cf;
+  color: #ffffff;
+  border: none;
+  padding: 0 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.search-btn:hover {
+  background-color: #2f2ab5;
+  transform: scale(1.02);
+}
+
+/* تاغز الفئات */
+.category-tags {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.category-tags span {
+  background-color: #f3f4f6;
+  color: #4b5563;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.category-tags span:hover {
+  background-color: #e0e7ff;
+  color: #3b36cf;
+  border-color: #c7d2fe;
+}
+
+
+.events-container {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.see-all-btn {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.see-all-btn:hover {
+  background-color: #f9fafb;
+  border-color: #3b36cf;
+  color: #3b36cf;
+}
+
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+
+.event-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid #e5e7eb;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.event-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(59, 54, 207, 0.1);
+}
+
+
+.event-img-container {
+  width: 100%;
+  height: 160px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f3f4f6;
+  position: relative;
+}
+
+
+.event-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.event-card:hover .event-img {
+  transform: scale(1.05);
+}
+
+
+.event-category-tag {
+  display: inline-block;
+  background-color: #e0e7ff;
+  color: #3b36cf;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.event-card h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.event-card p {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+
+.view-details-btn {
+  background-color: transparent;
+  border: 1px solid #3b36cf;
+  color: #3b36cf;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: all 0.3s ease;
+  width: fit-content;
+  font-size: 0.9rem;
+}
+
+.view-details-btn:hover {
+  background-color: #3b36cf;
+  color: #ffffff;
+}
+
+.no-events {
+  color: #6b7280;
+  text-align: center;
+  grid-column: 1 / -1;
+  padding: 20px;
+}
+
+
+.steps-section {
+  max-width: 1100px;
+  margin: 20px auto 40px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.step-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  transition: transform 0.3s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+}
+
+.step-card h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+.step-card p {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin: 0;
+}

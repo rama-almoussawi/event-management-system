@@ -1,0 +1,153 @@
+
+.contact {
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f9;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+
+.contact .leftSide {
+  flex: 1;
+  height: 550px;
+  background-color: #ffffff;
+  border-radius: 12px 0 0 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 25px;
+  box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+
+.contact .leftSide .event-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+
+.event-info-box {
+  width: 100%;
+  text-align: left;
+}
+
+
+.event-category-tag {
+  background-color: #4f46e5;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.event-info-box h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #1e1b4b;
+}
+
+.event-info-box p {
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #4b5563;
+}
+
+
+.contact .rightSide {
+  flex: 1;
+  height: 550px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 12px 12px 0;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+}
+
+#contact-form h2 {
+  font-size: 24px;
+  color: #1e1b4b;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+#contact-form label {
+  color: #4b5563;
+  font-size: 14px;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+#contact-form input {
+  height: 45px;
+  padding: 0 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  margin-bottom: 18px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#contact-form input:focus {
+  border-color: #4f46e5;
+}
+
+#contact-form button {
+  height: 48px;
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 10px;
+}
+
+#contact-form button:hover {
+  background-color: #4338ca;
+}
+
+
+@media screen and (max-width: 768px) {
+  .contact {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .contact .leftSide,
+  .contact .rightSide {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+  }
+
+  .contact .leftSide {
+    margin-bottom: 20px;
+  }
+}

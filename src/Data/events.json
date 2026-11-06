@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Tech Workshop 2026",
+    "category": "Tech",
+    "date": "Date TBD",
+    "venue": "Venue TBD",
+    "seats": "40 seats left",
+    "image": "../Assets/Tech Conference.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Robotics Bootcamp",
+    "category": "Tech",
+    "date": "Date TBD",
+    "venue": "Venue TBD",
+    "seats": "120 seats left",
+    "image": "../Assets/Robotics Bootcamp.jpg"
+  },
+  {
+    "id": 3,
+    "title": "AI & Data Science Hackathon",
+    "category": "Tech",
+    "date": "Date TBD",
+    "venue": "Venue TBD",
+    "seats": "15 seats left",
+    "image": "../Assets/AI & Data Science Hackathon.jpg"
+  }
+]
