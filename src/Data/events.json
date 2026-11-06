@@ -3,8 +3,8 @@
     "id": 1,
     "title": "Tech Workshop 2026",
     "category": "Tech",
-    "date": "Date TBD",
-    "venue": "Venue TBD",
+    "date": "2026-12-05",
+    "venue": "Beirut Digital District",
     "seats": "40 seats left",
     "image": "../Assets/Tech Conference.jpg"
   },
@@ -12,8 +12,8 @@
     "id": 2,
     "title": "Robotics Bootcamp",
     "category": "Tech",
-    "date": "Date TBD",
-    "venue": "Venue TBD",
+    "date": "2026-12-12",
+    "venue": "Innovation Lab, Beirut",
     "seats": "120 seats left",
     "image": "../Assets/Robotics Bootcamp.jpg"
   },
@@ -21,9 +21,36 @@
     "id": 3,
     "title": "AI & Data Science Hackathon",
     "category": "Tech",
-    "date": "Date TBD",
-    "venue": "Venue TBD",
+    "date": "2027-01-16",
+    "venue": "Baalbek Cultural Center",
     "seats": "15 seats left",
+    "image": "../Assets/AI & Data Science Hackathon.jpg"
+  },
+  {
+    "id": 4,
+    "title": "UI/UX Design Masterclass",
+    "category": "Workshop",
+    "date": "2027-02-10",
+    "venue": "Online",
+    "seats": "50 seats left",
+    "image": "../Assets/AI & Data Science Hackathon.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Cybersecurity Summit",
+    "category": "Conference",
+    "date": "2027-03-01",
+    "venue": "Phoenicia Hotel, Beirut",
+    "seats": "80 seats left",
+    "image": "../Assets/AI & Data Science Hackathon.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Full-Stack Web Development",
+    "category": "Tech",
+    "date": "2027-03-15",
+    "venue": "Tripoli Tech Hub",
+    "seats": "30 seats left",
     "image": "../Assets/AI & Data Science Hackathon.jpg"
   }
 ]

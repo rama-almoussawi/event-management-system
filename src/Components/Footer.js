@@ -1,8 +1,13 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
-import '../styles/Footer.css';
+import { useLanguage } from "../context/LanguageContext";
+import "../styles/Footer.css";
 
 function Footer() {
+  const { lang } = useLanguage();
+  const isEnglish = lang === "en";
+
   return (
     <footer className="footer-section py-5">
       <div className="container">
@@ -14,7 +19,9 @@ function Footer() {
               <i className="fas fa-phone-alt"></i>
             </div>
             <div>
-              <h6 className="fw-bold fs-5 mb-0">Phone</h6>
+              <h6 className="fw-bold fs-5 mb-0">
+                {isEnglish ? "Phone" : "Téléphone"}
+              </h6>
               <small className="text-muted fs-6">(+961) 76 005 456</small>
             </div>
           </div>
@@ -34,7 +41,9 @@ function Footer() {
               <i className="fas fa-map-marker-alt"></i>
             </div>
             <div>
-              <h6 className="fw-bold fs-5 mb-0">Address</h6>
+              <h6 className="fw-bold fs-5 mb-0">
+                {isEnglish ? "Address" : "Adresse"}
+              </h6>
               <small className="text-muted fs-6">Baalbek, Beqaa, Lebanon</small>
             </div>
           </div>
@@ -45,12 +54,13 @@ function Footer() {
 
           <div className="col-md-3">
             <div className="footer-logo mb-3">
-              <h3 className="fw-bold logo-text">
-                EventHub
-              </h3>
+              <h3 className="fw-bold logo-text">EventHub</h3>
             </div>
+
             <p className="text-muted fs-6 small">
-              Your ultimate platform for discovering, managing, and joining events seamlessly.
+              {isEnglish
+                ? "Your ultimate platform for discovering, managing, and joining events seamlessly."
+                : "Votre plateforme idéale pour découvrir, organiser et participer facilement à des événements."}
             </p>
 
             <div className="footer-social d-flex justify-content-center justify-content-md-start gap-3 mt-4">
@@ -84,34 +94,43 @@ function Footer() {
           </div>
 
           <div className="col-md-3">
-            <h6 className="fw-bold fs-4 footer-heading">Navigation</h6>
+            <h6 className="fw-bold fs-4 footer-heading">
+              {isEnglish ? "Navigation" : "Navigation"}
+            </h6>
+
             <ul className="list-unstyled footer-links fs-5 mt-4">
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/about">About</Link></li>
-              <li><Link to="/events">Events</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
+              <li><Link to="/">{isEnglish ? "Home" : "Accueil"}</Link></li>
+              <li><Link to="/about">{isEnglish ? "About" : "À propos"}</Link></li>
+              <li><Link to="/events">{isEnglish ? "Events" : "Événements"}</Link></li>
+              <li><Link to="/contact">{isEnglish ? "Contact" : "Contact"}</Link></li>
             </ul>
           </div>
 
           <div className="col-md-3">
-            <h6 className="fw-bold fs-4 footer-heading">Quick Links</h6>
+            <h6 className="fw-bold fs-4 footer-heading">
+              {isEnglish ? "Quick Links" : "Liens rapides"}
+            </h6>
+
             <ul className="list-unstyled footer-links fs-5 mt-4">
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Terms & Conditions</a></li>
-              <li><a href="#">Support Center</a></li>
+              <li><a href="#">{isEnglish ? "Privacy Policy" : "Politique de confidentialité"}</a></li>
+              <li><a href="#">{isEnglish ? "Terms & Conditions" : "Conditions générales"}</a></li>
+              <li><a href="#">{isEnglish ? "Support Center" : "Centre d'assistance"}</a></li>
             </ul>
           </div>
 
           <div className="col-md-3">
-            <h6 className="fw-bold fs-4 footer-heading">Work Hours</h6>
+            <h6 className="fw-bold fs-4 footer-heading">
+              {isEnglish ? "Work Hours" : "Heures de travail"}
+            </h6>
+
             <ul className="list-unstyled small text-muted mt-4">
               <li className="mb-3">
                 <i className="far fa-clock me-2 palette-icon fs-5"></i>
-                Mon - Fri : 8AM - 6PM
+                {isEnglish ? "Mon - Fri : 8AM - 6PM" : "Lun - Ven : 8h - 18h"}
               </li>
               <li>
                 <i className="far fa-clock me-2 palette-icon fs-5"></i>
-                Saturday : 9AM - 2PM
+                {isEnglish ? "Saturday : 9AM - 2PM" : "Samedi : 9h - 14h"}
               </li>
             </ul>
           </div>
@@ -119,7 +138,9 @@ function Footer() {
         </div>
 
         <div className="text-center small text-muted mt-5 fs-6 pt-4 border-top">
-          &copy; EventHub • Event Management System • CSCI426 Project Phase 1
+          &copy; EventHub • {isEnglish
+            ? "Event Management System"
+            : "Système de gestion d'événements"} • CSCI426 Project Phase 1
         </div>
 
       </div>

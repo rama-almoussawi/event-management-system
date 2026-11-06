@@ -1,272 +1,153 @@
-import React, { useState, useMemo } from "react";
-import "../styles/Events.css";
+
+import React, { useState } from 'react';
+import eventsData from '../Data/events.json';
+import { Link } from 'react-router-dom';
+import Footer from '../Components/Footer';
+import { useLanguage } from '../context/LanguageContext';
+import '../styles/Events.css';
+
+import techImg from '../Assets/Tech Conference.jpg';
+import roboticsImg from '../Assets/Robotics Bootcamp.jpg';
+import aiImg from '../Assets/AI & Data Science Hackathon.jpg';
+import cyberS from '../Assets/cybersecurity.jpg';
+import uiux from '../Assets/uiuximg.jpg';
+import webimg from '../Assets/webimg.jpg';
 
 const CATEGORIES = ["Tech", "Workshop", "Conference"];
 
-const initialEvents = [
-    {
-        id: 1,
-        title: "AI and Data Science Hackathon",
-        category: "Tech",
-        date: "2026-12-05",
-        venue: "Beirut Digital District",
-        seats: 40,
-    },
-    {
-        id: 2,
-        title: "Robotics Bootcamp",
-        category: "Workshop",
-        date: "2026-12-12",
-        venue: "Innovation Lab, Beirut",
-        seats: 15,
-    },
-    {
-        id: 3,
-        title: "Tech Conference",
-        category: "Conference",
-        date: "2027-01-16",
-        venue: "Beirut Conference Center",
-        seats: 120,
-    },
-];
-
 const Events = () => {
-    const [events, setEvents] = useState(initialEvents);
-    const [registrations, setRegistrations] = useState([
-        { id: 1, title: "Tech Conference", tickets: 2, status: "confirmed" },
-    ]);
 
-    const [filters, setFilters] = useState({
-        search: "",
-        category: "All",
-        date: "",
-        sort: "soonest",
-    });
+  const [search, setSearch] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
-    const [selected, setSelected] = useState(null);
-    const [tickets, setTickets] = useState(1);
+  const { lang } = useLanguage();
+  const isEnglish = lang === 'en';
 
-    /* ---------- filtering + sorting ---------- */
-    const visibleEvents = useMemo(() => {
-        const list = events.filter((ev) => {
-            const matchSearch = ev.title
-                .toLowerCase()
-                .includes(filters.search.toLowerCase());
-            const matchCategory =
-                filters.category === "All" || ev.category === filters.category;
-            const matchDate = !filters.date || ev.date === filters.date;
-            return matchSearch && matchCategory && matchDate;
-        });
+  const imagesMap = {
+    1: techImg,
+    2: roboticsImg,
+    3: aiImg,
+    4: uiux,
+    5: cyberS,
+    6: webimg
+  };
 
-        list.sort((a, b) => {
-            if (filters.sort === "seats") return b.seats - a.seats;
-            if (filters.sort === "title") return a.title.localeCompare(b.title);
-            return a.date.localeCompare(b.date);
-        });
+  const filteredEvents = eventsData.filter((event) =>
+    event.title.toLowerCase().includes(search.toLowerCase()) &&
+    (selectedCategory === "All" || event.category === selectedCategory)
+  );
 
-        return list;
-    }, [events, filters]);
+  return (
+    <div className="home-page">
 
-    /* ---------- handlers ---------- */
-    const handleFilter = (e) =>
-        setFilters({ ...filters, [e.target.name]: e.target.value });
+      <div className="events-container" style={{ padding: "40px 20px" }}>
 
-    const handleRegister = (e) => {
-        e.preventDefault();
-        const count = Number(tickets);
-
-        if (count < 1 || count > selected.seats) {
-            alert(`Please choose between 1 and ${selected.seats} tickets.`);
-            return;
-        }
-
-        setEvents(
-            events.map((ev) =>
-                ev.id === selected.id ? { ...ev, seats: ev.seats - count } : ev
-            )
-        );
-        setRegistrations([
-            ...registrations,
-            { id: Date.now(), title: selected.title, tickets: count, status: "confirmed" },
-        ]);
-        setSelected(null);
-        setTickets(1);
-    };
-
-    const handleCancelRegistration = (id) =>
-        setRegistrations(registrations.filter((r) => r.id !== id));
-
-    const formatDate = (d) =>
-        d ? new Date(d + "T00:00:00").toLocaleDateString() : "Date TBD";
-
-    /* ---------- render ---------- */
-    return (
-        <div>
-            <section className="events py-5" id="events">
-                <div className="container">
-
-                    <h1 className="fw-bold heading-style mb-4">Events</h1>
-
-                    {/* Filters */}
-                    <div className="row g-3 mb-4 events-filters">
-                        <div className="col-md-3">
-                            <label htmlFor="search">Search</label>
-                            <input
-                                id="search"
-                                name="search"
-                                type="text"
-                                placeholder="Event name"
-                                value={filters.search}
-                                onChange={handleFilter}
-                            />
-                        </div>
-
-                        <div className="col-md-3">
-                            <label htmlFor="category">Category</label>
-                            <select
-                                id="category"
-                                name="category"
-                                value={filters.category}
-                                onChange={handleFilter}
-                            >
-                                <option value="All">All</option>
-                                {CATEGORIES.map((c) => (
-                                    <option key={c} value={c}>{c}</option>
-                                ))}
-                            </select>
-                        </div>
-
-                        <div className="col-md-3">
-                            <label htmlFor="date">Date</label>
-                            <input
-                                id="date"
-                                name="date"
-                                type="date"
-                                value={filters.date}
-                                onChange={handleFilter}
-                            />
-                        </div>
-
-                        <div className="col-md-3">
-                            <label htmlFor="sort">Sort by</label>
-                            <select
-                                id="sort"
-                                name="sort"
-                                value={filters.sort}
-                                onChange={handleFilter}
-                            >
-                                <option value="soonest">Soonest</option>
-                                <option value="seats">Most seats</option>
-                                <option value="title">Title (A–Z)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    {/* Event grid */}
-                    <div className="row g-4">
-                        {visibleEvents.map((ev) => (
-                            <div className="col-12 col-sm-6 col-lg-4" key={ev.id}>
-                                <div className="event-card">
-                                    <div className={`event-banner cat-${ev.category.toLowerCase()}`}>
-                                        <span>{ev.category}</span>
-                                    </div>
-                                    <div className="event-body">
-                                        <h5 className="event-title">{ev.title}</h5>
-                                        <p className="event-meta">
-                                            {formatDate(ev.date)} · {ev.venue}
-                                        </p>
-                                        <p className="event-meta">
-                                            {ev.seats > 0 ? `${ev.seats} seats left` : "Sold out"}
-                                        </p>
-                                        <button
-                                            className="btn-outline-ev"
-                                            onClick={() => setSelected(ev)}
-                                        >
-                                            View details
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-
-                    {visibleEvents.length === 0 && (
-                        <p className="text-muted mt-4">
-                            No events match your filters. Try clearing the search or date.
-                        </p>
-                    )}
-
-                    {/* My registrations */}
-                    <h2 className="fw-bold mt-5 mb-3">My registrations</h2>
-                    <div className="registrations">
-                        {registrations.length === 0 && (
-                            <div className="registration-row text-muted">
-                                You haven't registered for any events yet.
-                            </div>
-                        )}
-
-                        {registrations.map((r) => (
-                            <div className="registration-row" key={r.id}>
-                                <span>
-                                    {r.title} · {r.tickets} ticket{r.tickets > 1 ? "s" : ""} · {r.status}
-                                </span>
-                                <button
-                                    className="link-btn"
-                                    onClick={() => handleCancelRegistration(r.id)}
-                                >
-                                    Cancel
-                                </button>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Details / register modal */}
-            {selected && (
-                <div className="ev-overlay" onClick={() => setSelected(null)}>
-                    <form
-                        className="ev-modal"
-                        onClick={(e) => e.stopPropagation()}
-                        onSubmit={handleRegister}
-                    >
-                        <h3 className="fw-bold">{selected.title}</h3>
-                        <p className="event-meta">
-                            {selected.category} · {formatDate(selected.date)} · {selected.venue}
-                        </p>
-                        <p className="event-meta">{selected.seats} seats left</p>
-
-                        <label htmlFor="tickets">Tickets</label>
-                        <input
-                            id="tickets"
-                            type="number"
-                            min="1"
-                            max={selected.seats}
-                            value={tickets}
-                            onChange={(e) => setTickets(e.target.value)}
-                        />
-
-                        <div className="d-flex gap-2 mt-3">
-                            <button
-                                type="submit"
-                                className="btn-primary-ev"
-                                disabled={selected.seats === 0}
-                            >
-                                Register
-                            </button>
-                            <button
-                                type="button"
-                                className="btn-outline-ev"
-                                onClick={() => setSelected(null)}
-                            >
-                                Close
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            )}
+        <div className="section-header">
+          <h2>{isEnglish ? "Events" : "Événements"}</h2>
         </div>
-    );
+
+        <div
+          className="search-box-container"
+          style={{ marginBottom: "30px", display: "flex", gap: "15px" }}
+        >
+
+          <input
+            type="text"
+            placeholder={isEnglish ? "Search tech events" : "Rechercher des événements"}
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="search-input"
+          />
+
+          <select
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+            style={{
+              padding: "10px",
+              borderRadius: "8px",
+              border: "1px solid #ccc"
+            }}
+          >
+            <option value="All">
+              {isEnglish ? "All Categories" : "Toutes les catégories"}
+            </option>
+
+            {CATEGORIES.map((cat) => (
+              <option key={cat} value={cat}>
+                {isEnglish
+                  ? cat
+                  : cat === "Tech"
+                    ? "Technologie"
+                    : cat === "Workshop"
+                      ? "Atelier"
+                      : "Conférence"}
+              </option>
+            ))}
+          </select>
+
+        </div>
+
+        {filteredEvents.length === 0 ? (
+          <p className="no-events">
+            {isEnglish ? "No tech events found." : "Aucun événement trouvé."}
+          </p>
+        ) : null}
+
+        <div className="events-grid">
+
+          {filteredEvents.map((event) => (
+
+            <div key={event.id} className="event-card">
+
+              <div className="event-img-container">
+                <img
+                  src={imagesMap[event.id]}
+                  alt={event.title}
+                  className="event-img"
+                />
+              </div>
+
+              <span className="event-category-tag">
+                {isEnglish
+                  ? event.category
+                  : event.category === "Tech"
+                    ? "Technologie"
+                    : event.category === "Workshop"
+                      ? "Atelier"
+                      : event.category === "Conference"
+                        ? "Conférence"
+                        : event.category}
+              </span>
+
+              <h3>{event.title}</h3>
+
+              <p>{event.date} · {event.venue}</p>
+
+              <p>
+                {event.seats} {isEnglish ? "seats left" : "places restantes"}
+              </p>
+
+              <Link
+                to="/register"
+                className="view-details-btn"
+                onClick={() =>
+                  localStorage.setItem('selectedEventId', event.id)
+                }
+              >
+                {isEnglish ? "View details" : "Voir les détails"}
+              </Link>
+
+            </div>
+
+          ))}
+
+        </div>
+      </div>
+
+      <Footer />
+
+    </div>
+  );
 };
 
 export default Events;
