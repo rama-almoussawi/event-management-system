@@ -1,0 +1,86 @@
+/* login.css */
+
+/* Background & Layout */
+.login-page {
+  background-color: #f6f7fb;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* White Card Container */
+.login-box {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 420px;
+  padding: 40px 36px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  border: 1px solid #eaeaea;
+  text-align: center;
+}
+
+/* Headings */
+.login-box h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+.login-box h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #6b7280;
+  margin-bottom: 28px;
+}
+
+/* Form & Inputs Styling */
+.login-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  background-color: #ffffff;
+  color: #111827;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-box input:focus {
+  border-color: #3b36cf;
+  box-shadow: 0 0 0 3px rgba(59, 54, 207, 0.15);
+}
+
+/* Login Button */
+.btn-login {
+  width: 100%;
+  margin-top: 8px;
+  background-color: #3b36cf;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-login:hover {
+  background-color: #2e29b5;
+}
+
+.btn-login:active {
+  transform: scale(0.98);
+}

@@ -1,6 +1,7 @@
 
 import React, { useState } from "react";
-import "./styles/Contact.css";
+import '../styles/Contact.css';
+import Footer from '../Components/Footer';
 
 const Contact = () => {
     const [values, setValues] = useState({
@@ -96,7 +97,7 @@ const Contact = () => {
                                 </div>
                             </div>
 
-                            <div className="follow-us-section mt-5 border-top border-warning pt-4">
+                            <div className="follow-us-section mt-5 border-top pt-4">
                                 <h5 className="fw-bold fs-4 mb-3">Follow Us:</h5>
 
                                 <div className="d-flex gap-3">
@@ -176,6 +177,7 @@ const Contact = () => {
                     </div>
                 </div>
             </section>
+            <Footer/>
         </div>
     );
 };

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './about.css';
+import Footer from '../Components/Footer';
 
 function About() {
   const steps = [
@@ -98,6 +98,7 @@ function About() {
         </section>
 
       </main>
+      <Footer/>
 
     </div>
   );
