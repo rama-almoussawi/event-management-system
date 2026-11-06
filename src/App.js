@@ -3,6 +3,7 @@ import About from './pages/About';
 import NavBar from './Components/NavBar';
 import Footer from './Components/Footer';
 import Login from './pages/Login';
+import Events from './pages/Events';
 import {BrowserRouter as Router , Routes , Route } from 'react-router-dom'; 
 function App() {
    return (
@@ -10,9 +11,10 @@ function App() {
       <Router>
         <NavBar/> 
         <Routes> 
-          <Route path ="/about" excat Component={About}/>
+          <Route path ="/About" excat Component={About}/>
           <Route path ="/contact" excat Component={Contact}/>
            <Route path ="/login" excat Component={Login}/>
+           <Route path="/events" Component={Events} />
         </Routes>
         </Router>     
     </div>

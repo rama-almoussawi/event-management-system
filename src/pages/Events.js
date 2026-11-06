@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import "./styles/Events.css";
+import "../styles/Events.css";
 
 const CATEGORIES = ["Tech", "Workshop", "Conference"];
 

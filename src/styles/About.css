@@ -107,22 +107,29 @@
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.8s ease, visibility 0.8s ease;
+
+    /* image display */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
- 
+
 .carousel-slide.slide-active {
     opacity: 1;
     visibility: visible;
 }
- 
-.photo-blue   { background: linear-gradient(135deg, #3730a3, #5b52d6); }
-.photo-teal   { background: linear-gradient(135deg, #2f6b60, #4f9c8e); }
-.photo-indigo { background: linear-gradient(135deg, #14142b, #4b2a8a); }
- 
+
+/* fallback colors, shown only if an image fails to load */
+.photo-blue   { background-color: #3730a3; }
+.photo-teal   { background-color: #2f6b60; }
+.photo-indigo { background-color: #14142b; }
+
 .slide-content-overlay {
     width: 100%;
     padding: 80px 40px 64px;
     color: #fff;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.55), transparent);
+    /* darker gradient so text stays readable over photos */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.35) 60%, transparent);
 }
  
 .slide-tag {
