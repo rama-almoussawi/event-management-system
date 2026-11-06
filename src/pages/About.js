@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Footer from '../Components/Footer';
+import "../styles/About.css";
+
 
 function About() {
   const steps = [
