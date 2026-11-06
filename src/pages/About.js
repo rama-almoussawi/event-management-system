@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Footer from '../Components/Footer';
+import "../styles/About.css";
+import techImg from '../Assets/Tech Conference.jpg';
+import roboticsImg from '../Assets/Robotics Bootcamp.jpg';
+import aiImg from '../Assets/AI & Data Science Hackathon.jpg';
 
 function About() {
   const steps = [
     { title: "Discover", description: "Browse the catalogue of events." },
-    { title: "Register", description: "Book seats and get a confirmation." },
-    { title: "Manage", description: "Edit or delete the events you created." }
+    { title: "Register", description: "Book seats and get a confirmation." }
   ];
 
   const pastEvents = [
@@ -13,19 +16,22 @@ function About() {
       id: 1, 
       title: "Tech Workshop 2026", 
       desc: "Hands-on coding labs covering full-stack web development and scalable architectures.", 
-      color: "photo-blue" 
+      color: "photo-blue",
+      image: techImg
     },
     { 
       id: 2, 
       title: "Robotics Bootcamp", 
       desc: "Building autonomous hardware systems and scripting advanced microcontrollers.", 
-      color: "photo-teal" 
+      color: "photo-teal" ,
+      image: roboticsImg
     },
     { 
       id: 3, 
       title: "AI & Data Science Hackathon", 
       desc: "Developing predictive machine learning models and parsing complex algorithmic problems.", 
-      color: "photo-indigo" 
+      color: "photo-indigo" ,
+      image: aiImg
     }
   ];
 
@@ -75,6 +81,8 @@ function About() {
               <div 
                 key={event.id} 
                 className={`carousel-slide ${event.color} ${index === currentSlide ? 'slide-active' : ''}`}
+                style={{ backgroundImage: `url("${event.image}")` }}
+
               >
                 <div className="slide-content-overlay">
                   <span className="slide-tag">Learning Session</span>

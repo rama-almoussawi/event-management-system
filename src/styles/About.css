@@ -1,0 +1,218 @@
+/* ---------- page ---------- */
+.about-page {
+    background: #f8f4ff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: "Manrope", system-ui, sans-serif;
+    color: #1a1a2e;
+}
+ 
+.about-main {
+    flex: 1;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 56px 20px 24px;
+}
+ 
+.about-section {
+    margin-bottom: 64px;
+}
+ 
+/* ---------- headings + intro ---------- */
+.about-title {
+    font-size: 2.6rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #1a1a2e;
+}
+ 
+.about-mission {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #5a5a6e;
+}
+ 
+.section-heading {
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 32px;
+    color: #1a1a2e;
+}
+ 
+.section-heading::after {
+    content: "";
+    display: block;
+    width: 56px;
+    height: 4px;
+    margin: 12px auto 0;
+    border-radius: 4px;
+    background: #3730a3;
+}
+ 
+/* ---------- how it works cards ---------- */
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+ 
+.info-card {
+    background: #fff;
+    border: 1px solid #e6e1f2;
+    border-radius: 16px;
+    padding: 28px 24px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+ 
+.info-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(55, 48, 163, 0.12);
+}
+ 
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #3730a3;
+    margin-bottom: 10px;
+}
+ 
+.card-text {
+    margin: 0;
+    color: #5a5a6e;
+    line-height: 1.6;
+}
+ 
+/* ---------- carousel ---------- */
+.carousel-container {
+    position: relative;
+    height: 360px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(20, 20, 43, 0.18);
+}
+ 
+.carousel-slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+
+    /* image display */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.carousel-slide.slide-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* fallback colors, shown only if an image fails to load */
+.photo-blue   { background-color: #3730a3; }
+.photo-teal   { background-color: #2f6b60; }
+.photo-indigo { background-color: #14142b; }
+
+.slide-content-overlay {
+    width: 100%;
+    padding: 80px 40px 64px;
+    color: #fff;
+    /* darker gradient so text stays readable over photos */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.35) 60%, transparent);
+}
+ 
+.slide-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    margin-bottom: 12px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+ 
+.slide-title {
+    font-size: 1.9rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+ 
+.slide-desc {
+    max-width: 620px;
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+ 
+/* ---------- dots ---------- */
+.carousel-dots {
+    position: absolute;
+    bottom: 18px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    z-index: 2;
+}
+ 
+.dot {
+    width: 12px;
+    height: 12px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+ 
+.dot:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+ 
+.dot-active {
+    background: #fff;
+    transform: scale(1.25);
+}
+ 
+/* ---------- responsive ---------- */
+@media (max-width: 768px) {
+    .about-title {
+        font-size: 2rem;
+    }
+ 
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+ 
+    .carousel-container {
+        height: 320px;
+    }
+ 
+    .slide-content-overlay {
+        padding: 60px 22px 56px;
+    }
+ 
+    .slide-title {
+        font-size: 1.4rem;
+    }
+ 
+    .slide-desc {
+        font-size: 0.95rem;
+    }
+}
+ 
