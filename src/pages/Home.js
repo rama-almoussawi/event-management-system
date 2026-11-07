@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import eventsData from '../Data/events.json';
 import { Link } from 'react-router-dom';
 import Footer from '../Components/Footer';
-import { useLanguage } from '../context/LanguageContext';
 import '../styles/Home.css';
+import { useContext } from 'react';
+import { LanguageContext } from '../context/LanguageContext';
 
 import techImg from '../Assets/Tech Conference.jpg';
 import roboticsImg from '../Assets/Robotics Bootcamp.jpg';
@@ -12,7 +13,7 @@ import aiImg from '../Assets/AI & Data Science Hackathon.jpg';
 
 const Home = () => {
   const [search, setSearch] = useState("");
-  const { lang } = useLanguage();
+  const { lang } = useContext(LanguageContext);
 
   const isEnglish = lang === 'en';
 
@@ -135,15 +136,6 @@ const Home = () => {
             {isEnglish
               ? 'Reserve your tickets with a quick form.'
               : 'Réservez vos billets avec un formulaire rapide.'}
-          </p>
-        </div>
-
-        <div className="step-card">
-          <h4>{isEnglish ? '3. Host' : '3. Organiser'}</h4>
-          <p>
-            {isEnglish
-              ? 'Create your own tech events and manage them.'
-              : 'Créez vos propres événements et gérez-les.'}
           </p>
         </div>
 

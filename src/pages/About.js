@@ -1,16 +1,17 @@
 
 import React, { useState, useEffect } from 'react';
 import Footer from '../Components/Footer';
-import { useLanguage } from '../context/LanguageContext';
 import "../styles/About.css";
-
+import { useContext } from 'react';
+import { LanguageContext } from '../context/LanguageContext';
 import techImg from '../Assets/Tech Conference.jpg';
 import roboticsImg from '../Assets/Robotics Bootcamp.jpg';
 import aiImg from '../Assets/AI & Data Science Hackathon.jpg';
 
+
 function About() {
 
-  const { lang } = useLanguage();
+  const { lang } = useContext(LanguageContext);
   const isEnglish = lang === 'en';
 
   const steps = [

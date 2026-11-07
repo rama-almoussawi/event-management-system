@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import eventsData from '../Data/events.json';
 import { Link } from 'react-router-dom';
 import Footer from '../Components/Footer';
-import { useLanguage } from '../context/LanguageContext';
 import '../styles/Events.css';
-
+import { useContext } from 'react';
+import { LanguageContext } from '../context/LanguageContext';
 import techImg from '../Assets/Tech Conference.jpg';
 import roboticsImg from '../Assets/Robotics Bootcamp.jpg';
 import aiImg from '../Assets/AI & Data Science Hackathon.jpg';
@@ -20,7 +20,7 @@ const Events = () => {
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const { lang } = useLanguage();
+  const { lang } = useContext(LanguageContext);
   const isEnglish = lang === 'en';
 
   const imagesMap = {

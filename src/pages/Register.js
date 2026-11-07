@@ -1,17 +1,14 @@
-
 import React, { useState } from "react";
 import eventsData from "../Data/events.json";
-
 import techImg from "../Assets/Tech Conference.jpg";
 import roboticsImg from "../Assets/Robotics Bootcamp.jpg";
 import aiImg from "../Assets/AI & Data Science Hackathon.jpg";
-
-import { useLanguage } from "../context/LanguageContext";
 import "../styles/Register.css";
+import { useContext } from 'react';
+import { LanguageContext } from '../context/LanguageContext';
 
 const Register = () => {
-
-  const { lang } = useLanguage();
+  const { lang } = useContext(LanguageContext);
   const isEnglish = lang === 'en';
 
   const savedId = localStorage.getItem("selectedEventId");
@@ -39,6 +36,12 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (Number(values.tickets) > 5) {
+       alert(isEnglish
+       ? "You can only book a maximum of 5 tickets!"
+       : "Vous pouvez réserver un maximum de 5 billets !");
+       return;
+}
 
     alert(
       isEnglish
@@ -90,11 +93,8 @@ const Register = () => {
                     ? "Conférence"
                     : event.category}
           </span>
-
           <h2>{event.title}</h2>
-
           <p>{event.date} · {event.venue}</p>
-
           <p>{event.seats}</p>
 
         </div>
@@ -103,11 +103,9 @@ const Register = () => {
       <div className="rightSide">
 
         <form id="contact-form" onSubmit={handleSubmit}>
-
           <h2>
             {isEnglish ? "Register" : "S'inscrire"}
           </h2>
-
           <label htmlFor="fname">
             {isEnglish ? "Full Name" : "Nom complet"}
           </label>

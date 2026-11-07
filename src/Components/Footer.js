@@ -1,11 +1,12 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import { useLanguage } from "../context/LanguageContext";
+import { useContext } from 'react';
+import { LanguageContext } from '../context/LanguageContext';
 import "../styles/Footer.css";
 
 function Footer() {
-  const { lang } = useLanguage();
+  const { lang } = useContext(LanguageContext);
   const isEnglish = lang === "en";
 
   return (

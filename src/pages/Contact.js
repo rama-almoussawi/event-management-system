@@ -2,7 +2,8 @@
 import React, { useState } from "react";
 import '../styles/Contact.css';
 import Footer from '../Components/Footer';
-import { useLanguage } from '../context/LanguageContext';
+import { useContext } from 'react';
+import { LanguageContext } from '../context/LanguageContext';
 
 const Contact = () => {
 
@@ -12,7 +13,7 @@ const Contact = () => {
         message: ""
     });
 
-    const { lang } = useLanguage();
+    const { lang } = useContext(LanguageContext);
     const isEnglish = lang === 'en';
 
     const handleSubmit = (e) => {

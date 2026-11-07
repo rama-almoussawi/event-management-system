@@ -1,14 +1,16 @@
 
 import React, { useState, useEffect } from "react";
 import Footer from "../Components/Footer";
-import { useLanguage } from "../context/LanguageContext";
 import "../styles/Login.css";
+
+import { useContext } from 'react';
+import { LanguageContext } from '../context/LanguageContext';
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { lang } = useLanguage();
+ const { lang } = useContext(LanguageContext);
   const isEnglish = lang === "en";
 
   const [isLoggedIn, setIsLoggedIn] = useState(

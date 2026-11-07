@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useLanguage } from "../context/LanguageContext";
+import { useContext } from 'react';
+import { LanguageContext } from '../context/LanguageContext';
 import '../styles/NavBar.css';
 
 const NavBar = () => {
 
-  const { lang, toggleLanguage } = useLanguage();
+ const { lang, toggleLanguage } = useContext(LanguageContext);
 
   return (
     <div className="navbar">
