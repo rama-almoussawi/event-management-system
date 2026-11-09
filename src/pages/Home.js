@@ -33,14 +33,14 @@ const Home = () => {
       <div className="hero-section">
         <h1>
           {isEnglish
-            ? 'Create, manage and register for events'
-            : 'Créez, gérez et inscrivez-vous aux événements'}
+            ? 'Browse and register for events'
+            : 'Parcourez les événements et inscrivez-vous'}
         </h1>
 
         <p>
           {isEnglish
-            ? 'Find something to attend, or host your own in a few clicks.'
-            : 'Trouvez un événement ou organisez le vôtre en quelques clics.'}
+            ? 'Find something to attend.'
+            : 'Trouvez un événement en quelques clics.'}
         </p>
 
         <div className="search-box-container">
