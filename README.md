@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Event Hub — Event Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A responsive **ReactJS** web application that enables users to discover upcoming tech events, filter by category, and reserve seats online with instant bilingual (**English / French**) support.
 
-## Available Scripts
+**Course:** CSCI426 – Advanced Web Programming (Project Phase 1, Fall 2026–2027)  
+**Institution:** Lebanese International University (LIU) — Department of Computer Science and Information Technology  
+**Authors:** Rasha Raad & Rama Al Moussawi   
+**Repository:** [https://github.com/rama-almoussawi/event-management-system](https://github.com/rama-almoussawi/event-management-system)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Event Hub** replaces scattered event announcements with a unified, responsive interface designed for attendees looking to explore events and book seats online. Built with React, React Router, and Bootstrap, this Phase 1 frontend release provides multi-page client-side routing, dynamic event selection via `localStorage`, and instant language switching across all views using React Context.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+> **Note:** Authentication (Login) and ticket registration confirmations are simulated on the client side in Phase 1.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Key Features
 
-### `npm run build`
+* **Event Catalogue & Live Search:** Browse upcoming events and filter dynamically by event title or category (`Tech`, `Workshops`, `AI`, `Coding`, `Conference`).
+* **Event Details & Seat Availability:** View event banners, dates, venues, and remaining seat counts on each event card.
+* **Dynamic Registration Page (`/register`):** Selecting an event persists its `id` in `localStorage` and loads its details alongside a booking form (full name, email, number of tickets) with instant confirmation feedback.
+* **Bilingual Interface (`EN` / `FR`):** Toggle the entire application between English and French in real time without page reloads via `LanguageContext`.
+* **Responsive Design:** Adapts seamlessly from multi-column desktop grids to single-column mobile layouts using Bootstrap and custom CSS media queries.
+* **Persistent Navigation & Footer:** Shared `NavBar` across all routes and a `Footer` displaying contact phone, email, and address details.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Site Map & Routes
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| Route | Page | Description |
+| :--- | :--- | :--- |
+| `/` | **Home** | Hero banner, search bar, quick category chips (`Tech`, `Workshops`, `AI`, `Coding`), and upcoming events preview |
+| `/about` | **About** | Platform mission, *How It Works* overview (`Discover` → `Register`), and a carousel of past tech events |
+| `/events` | **Events** | Full searchable event catalogue with category dropdown filtering |
+| `/register` | **Register** | Dynamic registration page displaying the user's selected event and ticket booking form |
+| `/contact` | **Contact** | Contact information (address, phone, email), social links, and an interactive inquiry form |
+| `/login` | **Login** | Simulated email and password authentication form |
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Project Structure
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```text
+src/
+├── Assets/                  # Event card and banner images (AI & Data Science, Cybersecurity, Robotics, etc.)
+├── Components/              # Reusable UI components (NavBar, Footer)
+├── context/
+│   └── LanguageContext.js   # Global React Context managing active EN / FR language state
+├── Data/
+│   └── events.json          # Local JSON dataset containing event titles, categories, dates, venues, and seats
+├── pages/                   # Page-level components (Home, About, Events, Contact, Login, Register)
+├── styles/                  # Dedicated CSS stylesheets for individual pages and the footer
+├── App.js                   # Root component configuring LanguageProvider, Router, and all 6 routes
+└── index.js                 # Application entry point
